@@ -3,16 +3,19 @@
     
 def letters_count(string):
     dic = {}
-    for char in string:
-        if char == ' ':#this conition is used to skip counting the space between the words 
-            continue
-        elif char in dic:
-            dic[char] += 1
-        else:
-            dic[char] = 1
+    for letter in string:
+        if letter.isalpha(): 
+            letter=letter.lower()
+            if letter in dic:
+                dic[letter] += 1
+            else:
+                dic[letter] = 1
     return dic
 
-input_string = input("Enter the string value: ")
-result = letters_count(input_string)
-print("Letter counts (excluding spaces):", result)
+given_string= input("Enter the string value: ")
+result = letters_count(given_string)
+if result:
+    print("Letter counts:", result)
+else:
+    print("The given string doesnt contain any alphabets")
 
